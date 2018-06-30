@@ -1,72 +1,24 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 using std::vector;
-class HAHA {
-public:
-	void PH() {
-		cout << "HELLO World" << endl;
-	}
-};
-class SB :public HAHA {
-public:
-	virtual void PH() {
-		cout << "HELLO " << endl;
-	}
-};
-class SC :public HAHA {
-public:
-	virtual void PH() {
-		cout << "HELLO 2 " << endl;
-	}
-};
 int main() {
-
-	SC *scp = new SC;
-	HAHA *hap = scp;
-
-	hap->PH();
-	scp->PH();
-
-
-
-	vector<HAHA *> v;
-	v.push_back(new SB);
-	v.push_back(new SC);
-	for (auto f : v) {
-		f->PH();
-	}
-	for (auto f : v) {
-		f->PH();
+	int cinTime = 0;
+	string word;
+	vector<string>text;
+	cout << "!" << endl;
+	while (cin >> word) {
+		cinTime++;
+		text.push_back(word);
+		cout << word << endl;
+		cout << "?" << endl;
+		if (cinTime % 2 == 0) {
+			for (vector<string>::size_type i = 0; i < text.size(); ++i) {
+				cout << "这是列表内的数" << text[i] << endl;
+			}
+		}
 	}
 	getchar();
 }
-//class Base
-//{
-//public:
-//	void print1() { printf("Hello from Base::print1!\n"); }
-//	virtual void print2() { printf("Hello from Base::print2!\n"); }
-//};
-//
-//class Derived : public Base
-//{
-//public:
-//	void print1() { printf("Hello from Derived::print1!\n"); }
-//	virtual void print2() { printf("Hello from Derived::print2!\n"); }
-//};
-//
-//int main()
-//{
-//	Derived *pd = new Derived();
-//	Base *pb = pd;
-//
-//	pd->print1();
-//	pb->print1();
-//
-//	pd->print2();
-//	pb->print2();
-//
-//	getchar();
-//	return 0;
-//}
 
